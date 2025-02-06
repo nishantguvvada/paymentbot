@@ -1,0 +1,9 @@
+
+fastapi
+uvicorn
+python-dotenv
+langchain-community
+pydantic
+pymongo[srv]
+dotenv
+requests
