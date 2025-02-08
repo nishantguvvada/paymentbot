@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react"
 import axios from "axios";
+import Image from "next/image";
 
 export const Items = ({ result }) => {
 
@@ -10,7 +11,7 @@ export const Items = ({ result }) => {
     useEffect(() => {
         try {
             const fetchProducts = async () => {
-                const response = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/products`);
+                const response = await axios.get(`${process.env.NEXT_PUBLIC_TABLE_BACKEND_URL}/products`);
                 setProducts(response.data.products);
             }
             fetchProducts();
@@ -22,7 +23,16 @@ export const Items = ({ result }) => {
     return (
         <>
             {products.length == 0 ? <div className="w-full h-full flex justify-center items-center"><h1 className="text-center max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl">Loading products!</h1></div> :
-                <div className="w-full flex justify-center items-center">
+                <div className="p-8 w-full flex flex-col gap-8 justify-center items-center">
+                    <div className="w-[50%] flex justify-center items-center">
+                        
+                        <Image 
+                            src={"/paymentsbot.png"}
+                            width={560}
+                            height={390}
+                            alt="Flow diagrams"
+                        />
+                    </div>
                     <div className="w-[50%] overflow-x-auto shadow-md sm:rounded-lg">
                         <table className="w-full text-sm text-left rtl:text-right text-gray-500">
                             <thead className="text-xs text-gray-700 uppercase bg-gray-50">
